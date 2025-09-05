@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('./img/fundo2.jpg');
+    font-family: 'Quicksand', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+    align-items: start;
+}
+
+.planeta-capa {
+    width: 300px;
+    height: 428px;
+    background: #fff;
+    transform-style: preserve-3d;
+    box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 0 20px 100px rgba(0,0,0,.5);
+    transition: 1s;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    margin-top: 100px;
+}
+
+.planeta-capa:hover {
+    transform: perspective(2000px) rotateY(-10deg);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 20px 100px rgba(0, 0, 0, .5);
+}
+
+.planeta-capa:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    width: 100%;
+    height: 5px;
+    background:  #e9c045;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.planeta-capa:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #edbe32;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.planeta-capa .planeta-img {
+    width: 211%;
+    height: 210%;
+    position: relative;
+    transform-origin: left;
+    transition: 1s;
+}
+
+.planeta-capa:hover .planeta-img {
+    transform: rotateY(-135deg);
+}
+
+.planeta-capa .planeta-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.planeta-capa .planeta-detalhes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+    z-index: -1;
+}
+
+@media (min-width: 768px) {
+    .planeta-capa {
+        grid-template-columns: 1fr 1fr;
+        max-width: 800px;
+    }
+
+    .planeta-detalhes {
+        text-align: left;
+    }
+}
